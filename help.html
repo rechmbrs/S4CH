@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en" charset="utf-8">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Cache-Control"
+            content="no-cache, no-store, must-revalidate" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+        <!--         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type"
+            content="text/html; charset=windows-1252">
+        <meta http-equiv="Cache-Control"
+            content="no-cache, no-store, must-revalidate">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Expires" content="0"> -->
+
+        <title>Scales for Chromatic Harmonica - Help file</title>
+
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+        <link rel="stylesheet" href="shared.css">
+        <!-- document.documentElement.style.setProperty('--your-variable', '#YOURCOLOR'); -->
+
+        <style>
+            table tr td {
+                max-height: 999999px;
+                border: 1px solid var(--txt-color);
+                border-radius: 8px;
+                border-collapse: collapse;
+                border-spacing: 0;
+                padding: 8px;
+                font-size: var(--txt-size);
+            }
+
+            a {
+                color: var(--txt-color);
+            }
+
+            img {
+                margin: 0;
+                font-size: var(--txt-size);
+                padding: 0;
+            }
+
+            #topBtn {
+                display: none;
+                position: fixed;
+                bottom: 50px;
+                right: 250px;
+                z-index: 99999;
+                font-size: 22px;
+                border: solid 2px var(--txt-color);
+                outline: none;
+                background-color: var(--bg-color);
+                color: var(--txt-color);
+                cursor: pointer;
+                padding: 15px;
+                border-radius: 8px;
+            }
+
+            #topBtn:hover {
+                background-color: #555;
+            }
+        </style>
+
+        <script src="manifest.js"></script>
+        <script src="scales.js"></script>
+    </head>
+
+    <body width="1080px">
+        <div id="topBtnDiv"><button onclick="topFunction()" id="topBtn"
+                title="Go to top" style="display: block;">Top</button></div>
+        <script>
+            var config = "";
+            config = config
+                + '<button onclick="topFunction()" id="topBtn" title="Go to top">Top</button>';
+            document.getElementById('topBtnDiv').innerHTML = config;
+            //Get the button
+            var topbutton = document.getElementById("topBtn");
+
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function () { scrollFunction() };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+                    topbutton.style.display = "block";
+                } else {
+                    topbutton.style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+        </script>
+
+        <table width="1080px">
+            <tr>
+                <td style="background-color: black;">
+                    <div id="column1" width="1080px"></div>
+                    <script>
+                        var config = "";
+                        config = config
+                            + '<h3 class="centerText" style="font-size: 22pt;">'
+                            + document.title
+                            + "</h3>"
+                            + '<h6 class="centerTextHeader" style="font-size: 16pt;">'
+                            + header
+                            + "</h6>";
+                        // console.log(config);
+                        document.getElementById('column1').innerHTML = config;
+                    </script>
+                    </div>
+                </td>
+                <td style="background-color: black;">
+                    <div id="sm" style="margin-left: 36px;">
+                        <script>
+                            var config =
+                                '<div class="tooltip">'
+                                + ' <a href='
+                                + sponsorWeb
+                                + '><img src='
+                                + sponsorLogo
+                                + ' alt="sm" width="186px" height="62px"></a>'
+                                + ' <span class="tooltipText" style="margin-left: -20px; margin-top: -24px;">'
+                                + sponsor
+                                + '</span>'
+                                + ' </div>'
+
+                            //console.log(config);
+                            document.getElementById('sm').innerHTML = config;
+                        </script>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <a id="top"></a>
+        <div width="1080px">
+            <table width="1080px">
+                <tr>
+                    <td colspan="4"
+                        style="background-color: black; padding: 8px;">
+                        Scales for Chromatic Harmonica (SCH)
+                        <br>
+                        <br>
+                        SCH is like a set of flash cards, from years ago, but
+                        adds
+                        the sound of the note and how to locate
+                        it's proper hole on a c-tuned chromatic harmonica.
+                        <br>
+                        <br>
+                        Chromatic, standard major/minor key scales, and
+                        major/minor Pentatonic scales are provided.
+                        These scales can be heard and seen going: Up, Down,
+                        Up / Down, Down / Up, or Random directions.
+                        Looping multiple times on a scale is available as is
+                        limiting the note range and setting the note step
+                        interval.
+                        Note duration of up to 8 seconds and a volume control
+                        are also provided.
+                        <br>
+                        <br>
+                        <span style="font-style: italic;">*** Parameter
+                            selection must be made before clicking OK/LOOP
+                            as the parameter selection is not interactive.
+                            ***</span>
+                        <br>
+                        <br>
+                        The sound provided is from midi synthesis and is not
+                        the best quality (personal evaluation).
+                        <br>
+                        <br>
+                        The web page is usable on Win, MAC, Linux, Android,
+                        iPhone, iPad.... In most cases, landscape view will
+                        be the preferred viewing direction. On small screens in
+                        portrait view with less than 1080px in width,
+                        landscape is a must.
+                        <br>
+                        <br>
+                        This web page is free to use. It is also
+                        open-source. If you desire to make a donation, please do
+                        so to your local Children's Hospital or local food bank.
+                        <br>
+                        <br>
+                        Future plans are limited.
+                        <ul>
+                            <li>
+                                Attempt to replace the sound files with ones
+                                created
+                                by an actual harmonica being played. I need
+                                someone's help in creating these.
+                            </li>
+                            <li>
+                                Make changes if bugs are found.
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4"
+                        style="background-color: black; font-size: 16pt; border-width: 1px; border-color: var(--txt-color)">
+                        Help areas <span
+                            style="font-size: var(--txt-size);">(click to go
+                            to specific area)</span>
+                    </td>
+                </tr>
+                <tr style="border-width: 1px;">
+                    <td style="font-size: 16pt; border-width: 1px;" width="24%">
+                        <ul>
+                            <!-- <li>
+                                <a href="#contrast">Contrast setting</a>
+                            </li> -->
+                            <li>
+                                <a href="#panel1">Panel
+                                    1</a>
+                            </li>
+                            <li>
+                                <a href="#panel2">Panel
+                                    2</a>
+                            </li>
+                            <li>
+                                <a href="#panel3">Panel
+                                    3</a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td style="font-size: 16pt; border-width: 1px;" width="24%">
+                        <ul>
+                            <li>
+                                <a href="#parameters">Parameters</a>
+                            </li>
+                            <li>
+                                <a href="#buttons">Buttons</a>
+                            </li>
+                            <li>
+                                <a href="#errors">Errors</a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td style="font-size: 16pt; border-width: 1px;" width="24%">
+                        <ul>
+                            <li>
+                                <a href="#notePlayed">Note being played</a>
+                            </li>
+                            <li>
+                                <a href="#holePlayed">Hole being played</a>
+                            </li>
+                            <li>
+                                <a href="#recap">Listing of notes/tabs
+                                    played</a>
+                            </li>
+                            <li>
+                                <a href="#noteSound">Note sound</a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td style="font-size: 16pt; border-width: 1px;" width="24%">
+                        <ul>
+                            <li>
+                                <a href="#recording">Recording</a>
+                            </li>
+                            <li>
+                                <a href="#stuff">Stuff</a>
+                            </li>
+                            <li>
+                                <a href="#scaleTable">Scale table</a>
+                            </li>
+                            <li>
+                                <a href="#download">File download</a>
+                            </li>
+                            <li>
+                                <a href="#copyright">Copyright</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            <!-- <a id="contrast"></a>
+            <table width="1080px">
+                <tr>
+                    <td colspan="3"
+                        style="background-color: black; font-size: 16pt; border-width: 1px;">
+                        Contrast setting
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: black;">
+                        <img src="contrast.png" alt="contrast"></img>
+                    </td>
+                    <td width="40%" style="font-size: var(--txt-size);">
+                        At page load, choose either value to set the contrast of
+                        the interface:
+                        <br>
+                        DIALOG:
+                        <div style="border: 1px solid var(--txt-color); border-radius: 8px;"
+                            width="50%">
+                            <ul>
+                                <li>OK - Optimum contrast (Default -
+                                    recommended).
+                                </li>
+                                <li>Cancel - Black/white.
+                                </li>
+                            </ul>
+                        </div>
+                        <br>
+                        To change while page is open, refresh browser.
+                    </td>
+                </tr>
+            </table> -->
+            <a id="panel1"></a>
+            <table width="1080px">
+                <tr>
+                    <td colspan="3"
+                        style="background-color: black; font-size: 16pt; border-width: 1px;">
+                        Panel 1
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: black;">
+                        <img src="ui0.png" alt="UI0" width="155px"
+                            height="300px"></img>
+                    </td>
+                    <td width="42%" style="font-size: var(--txt-size);">
+                        Pictorial tab information:
+                        <ul>
+                            <li>Hole number (for the first four holes of 16 hole
+                                chromatic an * follows the number as shown 3*)
+                            </li>
+                            <br>
+                            <li>Exhale <img style="vertical-align:middle"
+                                    src="exhale1.png" alt="ex" width="24px"
+                                    height="24px"> (shown) /
+                                Inhale <img style="vertical-align:middle"
+                                    src="inhale1.png" alt="in" width="24px"
+                                    height="24px">
+                            </li>
+                            <br>
+                            <li>Slide out <img style="vertical-align:middle"
+                                    src="sliderOut1.png" alt="ou" width="24px"
+                                    height="24px"> /
+                                Slide in <img style="vertical-align:middle"
+                                    src="sliderIn1.png" alt="in" width="24px"
+                                    height="24px"> (shown) .
+                            </li>
+                        </ul>
+                    </td>
+                    <td width="42%" style="font-size: var(--txt-size);">
+                        Note technical information:
+                        <ul>
+                            <li>Note name</li>
+                            <li>Note Tab</li>
+                            <br>
+                            <li>Note frequency in Hz</li>
+                            <li>Note wavelength in feet</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            <a id="panel2"></a>
+            <table width="1080px">
+                <tr>
+                    <td colspan="3"
+                        style="background-color: black; font-size: 16pt; border-width: 1px;">
+                        Panel 2
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: black;">
+                        <img src="ui1.png" alt="UI1" width="124px"
+                            height="308px"></img>
+                    </td>
+                    <td style="font-size: var(--txt-size);">
+                        Note information:
+                        <ul>
+                            <li>Note with accidental on staff or ledger
+                                lines.
+                            </li>
+                            <li>Staff is treble.
+                            </li>
+                            <li>Time signature is undefined with the
+                                length/duration of note being user controlled.
+                            </li>
+                        </ul>
+                    </td>
+                    <td style="font-size: var(--txt-size);">
+                        Tab below staff and ledger lines example (+3*s):
+                        <ul>
+                            <li> + = exhale
+                                <br>
+                                - = inhale
+                            </li>
+                            <li> number = hole
+                                <br>
+                                * = holes 1-4 of 16 hole harmonica
+                            </li>
+                            <li> s = slide-in. Nothing is shown for slide-out.
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            <a id="panel3"></a>
+            <table width="1080px">
+                <tr>
+                    <td colspan="3"
+                        style="background-color: black; font-size: 16pt; border-width: 1px;">
+                        Panel 3
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="background-color: black;">
+                        <img src="ui2.png" alt="UI2" width="570px"
+                            height="418px"></img>&nbsp;&nbsp;&nbsp;<img
+                            src="uiError.png" alt="UIError" width="250px"
+                            height="53px"></img>
+                    </td>
+                </tr>
+            </table>
+            <a id="parameters"></a>
+            <table width="1080px">
+                <tr>
+                    <td colspan="3"
+                        style="background-color: black; font-size: 16pt;">
+                        Parameter selection
+                    </td>
+                </tr>
+                <tr>
+                    <td width="20%" style="font-size: 16pt;">
+                        Setup item
+                    </td>
+                    <td width="10%" style="font-size: 16pt;">
+                        Default value
+                    </td>
+                    <td style="font-size: 16pt;">
+                        Option list
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: var(--txt-size);">
+                        Scales
+                    </td>
+
+                    <td style="font-size: var(--txt-size);">
+                        Chromatic
+                    </td>
+                    <td id="scales">
+                        <script>
+                            var config = "";
+                            for (var k = 0; k < scaleNames.length; k++) {
+                                var a = scaleNames[k];
+                                if (a.includes("A_M")) {
+                                    config = config
+                                        + '<br>'
+                                        + '<br>';
+                                }
+                                var b = a.replaceAll("s", "#");
+                                var c = b.replaceAll("_M", "_Major");
+                                var d = c.replaceAll("_m", "_minor");
+                                var e = d.replaceAll("P", "Pent");
+                                var f = e.replaceAll("Bl", "Blues");
+                                var g = f.replaceAll(" / ", "&nbsp;/&nbsp;");
+                                config = config
+                                    + g
+                                    + ',&nbsp;&nbsp;&nbsp;&nbsp; ';
+                            }
+
+                            config = config
+                                + '<br>'
+                                + 'To limit the scale note range, see Lowest note of Scale and Highest note of Scale parameters.'
+                                + '<br>'
+                                + '<br>'
+                                + 'Scales referred to as jazz and blues scales use the <i>MajorPent</i> and <i>minorPent</i> scales.'
+                                + '<br>'
+                                + '<div class="tooltip">'
+                                + '<br>'
+                                + '<a id="jazzBlues" href="https://www.basicmusictheory.com/topic/blues-scale">View this article about Music theory of Jazz/Blues scales.</a>'
+                                + '<span class="tooltipText" style="margin-left: -10px; margin-top: -28px;">Music theory Jazz/Blues scales article.</span>'
+                                + '</div>';
+
+                            document.getElementById("scales").innerHTML = config
+                                + '<br>';
+                        </script>
+                        <br>
+                        *** Not changeable while playing. ***
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: var(--txt-size);">
+                        Lowest note of Scale.
+                    </td>
+
+                    <td style="font-size: var(--txt-size);">
+                        C3
+                    </td>
+                    <td rowspan=2 id="notes">
+                        <script>
+                            var config = "";
+                            for (var k = 1; k < chromScale.length; k++) {
+                                var a = chromScale[k];
+                                if (k > 1 && a.includes("C") && a.length == 2) {
+                                    config = config
+                                        + "<br>"
+                                        + "<br>";
+                                }
+                                //console.log(k + " " + a);
+                                var b = a.replace(" / ", "&nbsp;/&nbsp;");
+                                config = config
+                                    + b;
+                                if (k < chromScale.length - 1) {
+                                    config = config
+                                        + ",&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ";
+                                }
+                            }
+                            document.getElementById("notes").innerHTML = config
+                                + '<br>';
+                        </script>
+                        <br>
+                        This is for limiting the range of notes within the
+                        chosen scale. Those notes below the lowest and those
+                        above the highest pitched will be omitted from the
+                        selected scale when played.
+                        <br>
+                        For 12 hole chromatics, use C4 to bypass the lower
+                        octave of the 16 hole harmonica.
+                        <br>
+                        Only enharmonic pitches which are not whole pitch
+                        equivalents are shown.
+                        <br>
+                        *** Not changeable while playing. ***
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: var(--txt-size);">
+                        Highest note of Scale.
+                    </td>
+                    <td style="font-size: var(--txt-size);">
+                        D7
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: var(--txt-size);">
+                        Direction of Scale
+                    </td>
+                    <td style="font-size: var(--txt-size);">
+                        UP
+                    </td>
+                    <td style="font-size: var(--txt-size);">
+                        This is for changing the Direction of the scale. The
+                        usable values are: Up, Down, Up / Down, Down / Up, and
+                        Random.
+                        <br>
+                        Random is best used with a short range of notes. One
+                        octave or so. See Lowest note of Scale and Highest note
+                        of Scale parameters to limit range of notes. Increasing
+                        the Note Length parameter may help you also.
+                        <br>
+                        *** Not changeable while playing. ***
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: var(--txt-size);">
+                        Step within Scale
+                    </td>
+                    <td style="font-size: var(--txt-size);">
+                        1
+                    </td>
+                    <td style="font-size: var(--txt-size);">
+                        This is for changing the Interval between notes. Range 1
+                        - 12. Step size is 1. One octave between notes will be
+                        seen with a 12. This does not generate arpeggios but
+                        every nth note sequences. Very useful for learning the
+                        sounds of intervals.
+                        <br>
+                        *** Not changeable while playing. ***
+                        <!-- https://youtu.be/DUehHv_U1fs -->
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: var(--txt-size);">
+                        Note Volume
+                    </td>
+                    <td style="font-size: var(--txt-size);">
+                        0.5
+                    </td>
+                    <td style="font-size: var(--txt-size);">
+                        This is for changing the Volume. Range of 0.0 - 1.0.
+                        Step size is 0.05.
+                        <br>
+                        *** Not changeable while playing. ***
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: var(--txt-size);">
+                        Note Length
+                    </td>
+                    <td style="font-size: var(--txt-size);">
+                        1.0 sec
+                    </td>
+                    <td style="font-size: var(--txt-size);">
+                        This is for changing the Length or duration of each
+                        note. Range of 0.0 - 8.0 sec. Step is 0.05 for lengths
+                        of 0 sec through 1 sec and is 1.0 from 1 sec through 8
+                        sec.
+                        A value of 1 sec is equivalent to 60 bpm, 0.5 sec
+                        is 120 bpm, and 0.25 sec is 240 bpm.
+                        <br>
+                        *** Not changeable while playing. ***
+                    </td>
+                </tr>
+            </table>
+            <a id="buttons"></a>
+            <table width="1080px">
+                <tr>
+                    <td colspan="1"
+                        style="background-color: black; font-size: 16pt;">
+                        <span style="vertical-align: middle;">Buttons</span>
+                    </td>
+                    <td colspan="2" style="background-color: black;">
+                        <img src="buttons.png" alt="buttons" width="414px"
+                            height="49px">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: var(--txt-size);" width="20%">
+                        OK
+                    </td>
+                    <td colspan="2" style="font-size: var(--txt-size);">
+                        Execute a single pass through the selected scale.
+                        Execution will cease on its own.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: var(--txt-size);">
+                        LOOP
+                    </td>
+                    <td colspan="2" style="font-size: var(--txt-size);">
+                        Execute multiple continuous passes through the
+                        selected scale. STOP or RESET must be used to stop the
+                        execution.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: var(--txt-size);">
+                        RESET
+                    </td>
+                    <td colspan="2" style="font-size: var(--txt-size);">
+                        Because the user parameters are "sticky", you must
+                        either click RESET or browser refresh to get back to the
+                        default values. RESET ceases execution of the scale
+                        when current note is finished.
+                        <br>
+                        DIALOG:
+                        <div style="border: 1px solid var(--txt-color); border-radius: 8px;"
+                            width="50%">
+                            Choose either to reset user parameters:
+                            <br>
+                            <ul>
+                                <li>OK - Previously saved parameters.
+                                </li>
+                                <li>Cancel - Default parameters
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: var(--txt-size);">
+                        STOP
+                    </td>
+                    <td colspan="2" style="font-size: var(--txt-size);">
+                        Cease execution of the scale when current note is
+                        finished.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: var(--txt-size);">
+                        SAVE
+                    </td>
+                    <td colspan="2" style="font-size: var(--txt-size);">
+                        Save user setup for loading on subsequent runs. Restore
+                        the setup to the default setup by clicking the RESET
+                        button followed by the SAVE button. The SAVE option is
+                        useful for limiting the note range for 12 hole
+                        chromatics and many other uses.
+                        <!-- <div
+                            style="border: 1px,var(--txt-color), solid; border-radius: 8px;">
+                            Choose either to reset user parameters:
+                            <br>
+                            OK - Previously saved parameters
+                            <br>
+                            Cancel - Default parameters
+                        </div> -->
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: var(--txt-size);">
+                        HELP
+                    </td>
+                    <td colspan="2" style="font-size: var(--txt-size);">
+                        Open this HELP document.
+                    </td>
+                </tr>
+            </table>
+            <a id="errors"></a>
+            <table width="1080px">
+                <tr>
+                    <td colspan="3"
+                        style="background-color: black; font-size: 16pt;">
+                        Error information
+                    </td>
+                </tr>
+                <tr>
+                    <td width="250px">
+                        <img src="uiError.png" alt="UIError" width="250px"
+                            height="53px"></img>
+                    </td>
+                    <td colspan="2">
+                        Error message in red text. RESET must be used to clear
+                        the
+                        error.
+                    </td>
+                </tr>
+            </table>
+            <a id="notePlayed"></a>
+            <table width="1080px">
+                <tr>
+                    <td colspan="3"
+                        style="background-color: black; font-size: 16pt;">
+                        Note position within the Chromatic scale
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="uiNote.png" alt="UINote"></img>
+                    </td>
+                    <td colspan="2" style="font-size: var(--txt-size);">
+                        The note being played and displayed above is shown
+                        relative to it's location within the Chromatic Scale by
+                        the surrounding dotted rectangle.
+                    </td>
+                </tr>
+            </table>
+            <a id="holePlayed"></a>
+            <table width="1080px">
+                <tr>
+                    <td colspan="3"
+                        style="background-color: black; font-size: 16pt;">
+                        Hole position within the Chromatic harmonica mouthpiece
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="uiHole.png" alt="UIHole"></img>
+                    </td>
+                    <td colspan="2" style="font-size: var(--txt-size);">
+                        The hole being played and displayed above is shown
+                        relative to it's location within the Chromatic harmonica
+                        mouthpiece. Whether it is Inhaled or Exhaled and whether
+                        the slide is out or in is shown.
+                        <ul>
+                            <li>Hole Number (for the first four holes of 16 hole
+                                chromatic an * follows the number as shown 3*
+                                above hole)
+                            </li>
+                            <br>
+                            <li>Exhale <img style="vertical-align:middle"
+                                    src="exhale1.png" alt="ex" width="24px"
+                                    height="24px"> (shown in hole) /
+                                Inhale <img style="vertical-align:middle"
+                                    src="inhale1.png" alt="in" width="24px"
+                                    height="24px">
+                            </li>
+                            <br>
+                            <li>Slide out <img style="vertical-align:middle"
+                                    src="sliderOut1.png" alt="ou" width="24px"
+                                    height="24px"> /
+                                Slide in <img style="vertical-align:middle"
+                                    src="sliderIn1.png" alt="in" width="24px"
+                                    height="24px"> (shown at right edge of
+                                mouthpiece).
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            <a id="recap"></a>
+            <table width="1080px">
+                <tr>
+                    <td colspan="3"
+                        style="background-color: black; font-size: 16pt;">
+                        Recap
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="uiRecap.png" alt="UIRecap"></img>
+                    </td>
+                    <td colspan="2" style="font-size: var(--txt-size);">
+                        Listing of the Scale played then a table of note names
+                        and tabs. The note name-tab pairs are separated by a ,
+                        and the tab is surrounded by ().
+                        <br>
+                        This is an example of text in the recap:
+                        <br>&nbsp;&nbsp;&nbsp;SCALE: Chroma NOTE-NAME(TAB),:
+                        G#3 / Ab3(3*+S), ...
+                        <br>
+                        This item can be copied for later use. To use, Click in
+                        open area of field, Ctrl-A to select all, Ctrl-C to
+                        copy, and Ctrl-V to paste into your desired text file.
+                    </td>
+                </tr>
+            </table>
+            <a id="noteSound"></a>
+            <table width="1080px">
+                <tr>
+                    <td colspan="3"
+                        style="background-color: black; font-size: 16pt;">
+                        Note sound
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: var(--txt-size);" width="20%">
+                        Sound
+                    </td>
+                    <td colspan="2" style="font-size: var(--txt-size);">
+                        The audio used was generated using Musescore 3 to
+                        generate a score which is converted to sound with the
+                        internal Midi synthesis algorithm (A4 = 440 Hz). The
+                        timbre is typical of Midi synthesis which tries to
+                        emulate an actual instrument.
+                        <br>
+                        The emulation is poor in my evaluation as actual 4 sec
+                        sound files from a 16 hole chromatic harmonica do not
+                        exist.
+                    </td>
+                </tr>
+            </table>
+            <a id="recording"></a>
+            <table width="1080px">
+                <tr>
+                    <td colspan="3"
+                        style="background-color: black; font-size: 16pt;">
+                        Recording
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: var(--txt-size);" width="20%">
+                        Audio
+                    </td>
+                    <td colspan="2" style="font-size: var(--txt-size);">
+                        If the program is used to generate repetitive flows,
+                        it might be easier to record the raw session from the
+                        computer (not from your instrument) and then playback
+                        the recording for practice or other use.
+                        <br>
+                        Recording of the audio output is easily done on:
+                        <br>
+                        PCs <a
+                            href="https://www.lifewire.com/how-to-record-audio-on-windows-10-4773840"><b>Record
+                                audio on Windows</b></a>.
+                        <br>
+                        MACs <a
+                            href="https://support.apple.com/guide/quicktime-player/record-audio-qtpf25d6f827/mac"><b>Record
+                                audio on MAC</b></a>.
+                        <br>
+                        OTHERS Search the web.
+                        <br>
+                        Key is to record internal sound not the sound through
+                        the speakers/microphone.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: var(--txt-size);">
+                        Audio/Video
+                    </td>
+                    <td colspan="2" style="font-size: var(--txt-size);">
+                        If the program is used to generate repetitive flows, it
+                        might be easier to record the session and then playback
+                        the recording for practice or other use.
+                        <br>
+                        Recording of the audio/video output is easily done on:
+                        <br>
+                        PCs, MACs, and others using <a
+                            href="https://obsproject.com/"><b>OBS
+                                Studio</b></a>.
+                    </td>
+                </tr>
+            </table>
+            <a id="stuff"></a>
+            <table width="1080px">
+                <tr>
+                    <td colspan="3"
+                        style="background-color: black; font-size: 16pt;">
+                        Stuff
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: var(--txt-size);" width="20%">
+                        Browsers
+                    </td>
+                    <td colspan="2" style="font-size: var(--txt-size);">
+                        Clean your browser's cache regularly as files used
+                        will go missing after a while and the program will not
+                        execute properly. A forced refresh (CTRL-F5 Win or
+                        Shift-Command-R Mac for most browsers. For others
+                        search web.) is required to make sure all files are
+                        available.
+                        <br>
+                        <br>
+                        Claims are made that a browser is HTML5 standard but
+                        even Chrome differs from device-to-device and from the
+                        HTML5 standards. This is especially true on all phones
+                        and pads.
+                        Positioning of items on various devices maybe different.
+                        <br>
+                        <br>
+                        In running the program on phones and pads, it maybe
+                        useful to run in the browser in <b>"INCOGNITO Mode"</b>
+                        which will force the loading of the files directly from
+                        the server.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: var(--txt-size);">
+                        Internet
+                    </td>
+                    <td colspan="2" style="font-size: var(--txt-size);">
+                        If the program seems to be slow in loading,
+                        it is downloading a number of files and building an
+                        internal database for faster use in execution.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: var(--txt-size);">
+                        Permissions
+                    </td>
+                    <td colspan="2" style="font-size: var(--txt-size);">
+                        Permission to use the audio system must be
+                        set to yes or the notes will not be audible.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: var(--txt-size);">
+                        Known limits
+                    </td>
+                    <td colspan="2" style="font-size: var(--txt-size);">
+                        Short length notes (less than 0.25 sec) might be too
+                        fast for some devices. This is shown by skipped or
+                        weakened notes.
+                        <br>
+                        <br>
+                        Lack of quality of note timbre is due to poor midi
+                        synthesis. Two(2) sec recording of each note by someone
+                        with good tone on a real 16 hole instrument would be
+                        appreciated.
+                        PLEASE!!!
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: var(--txt-size);">
+                        Me
+                    </td>
+                    <td colspan="2" style="font-size: var(--txt-size);">
+                        <span id="me">
+                        </span>
+                    </td>
+                    <script>
+                        var moi = author + " (" + email + "). " + "Exalted Chief PITA. <br> AKA: Dr Ron or Dr wh<b>Y</b>.";
+                        document.getElementById("me").innerHTML = "<span>" + moi + "</span>";
+                    </script>
+                </tr>
+            </table>
+            <a id="scaleTable"></a>
+            <div id="notetable">
+                <script>
+                    var config = "";
+                    config = config
+                        + '<table width="1080px">'
+                        + '<tr>'
+                        + '<td colspan = "5" style = "background-color: black; font-size: 16pt;" >'
+                        + 'Note table'
+                        + "</td>"
+                        + '</tr >'
+                        + '<tr>'
+                        + '<td style="font-size: var(--txt-size);" width="18%">'
+                        + 'Note name'
+                        + '</td>'
+                        + '<td width="15%">'
+                        + 'Tab<br> * = holes 1-4 16 hole<br> +/- = exhale/inhale<br> S = slide in'
+                        + '</td>'
+                        + '<td width="15%">'
+                        + 'Frequency(Hz)'
+                        + '</td>'
+                        + '<td width="15%">'
+                        + 'Wavelength(in)/(cm)'
+                        + '</td>'
+                        + '<td width="15%">'
+                        + 'Period(msec)'
+                        + '</td>'
+                        + '</tr>';
+
+                    for (var k = 1; k < chromScale.length; k++) {
+                        var a = chromScale[k];
+                        var b = tabs[k];
+                        var c = freq[k];
+                        var d = (wave[k] * m2ft * 12.0).toFixed(1);
+                        var e = (wave[k] * 100.0).toFixed(1);
+                        var f = (1000.0 / freq[k]).toFixed(2);
+                        config = config
+                            + '<tr>'
+                            + '<td>'
+                            + a
+                            + '</td>'
+                            + '<td style="text-align: center;">'
+                            + b
+                            + '</td>'
+                            + '<td style="text-align: center;">'
+                            + c
+                            + '</td>'
+                            + '<td style="text-align: center;">'
+                            + d
+                            + '/'
+                            + e
+                            + '</td>'
+                            + '<td style="text-align: center;">'
+                            + f
+                            + '</td>'
+                            + '</tr>';
+                    }
+                    config = config
+                        + '<tr>'
+                        + '<td style="font-size: var(--txt-size);" width="18%">'
+                        + 'Note name'
+                        + '</td>'
+                        + '<td width="15%">'
+                        + 'Tab<br> * = holes 1-4 16 hole<br> +/- = exhale/inhale<br> S = slide in'
+                        + '</td>'
+                        + '<td width="15%">'
+                        + 'Frequency(Hz)'
+                        + '</td>'
+                        + '<td width="15%">'
+                        + 'Wavelength(in)/(cm)'
+                        + '</td>'
+                        + '<td width="15%">'
+                        + 'Period(msec)'
+                        + '</td>'
+                        + '</tr>'
+                        + '</table >'
+                    document.getElementById("notetable").innerHTML = config;
+                </script>
+            </div>
+            <a id="download"></a>
+            <table width="1080px">
+                <tr>
+                    <td colspan="3"
+                        style="background-color: black; font-size: 16pt;">
+                        Download
+                </tr>
+                <tr>
+                    <td style="font-size: var(--txt-size);" width="20%">
+                        Download
+                    </td>
+                    <td colspan="2" style="font-size: var(--txt-size);">
+                        <div class="tooltip">
+                            <a id="downloadUrl" href="#" download
+                                target="_blank">Download file</a>
+                            <span class="tooltipText" id="vR"
+                                style="margin-left: -50px; margin-top: -88px;"></span>
+                            <script>
+                                var vers = versionUrl.replaceAll(" ", "");
+                                document.getElementById("downloadUrl").setAttribute("href", vers);
+
+                                document.getElementById("vR").innerHTML = "<span> Download the website files contained in: " + vers + " for local use.</span>";
+                            </script>
+                            </span>
+                        </div>
+                        <br>
+                        <br>
+                        This 3+ mb file contains the zip-compressed versions
+                        of the html, js, css, png, and mp3 files needed to use
+                        the program. Index.html is the file to execute after
+                        unzipping to a folder. Executing from a local copy of
+                        the files on Android and iPhone may not be possible due
+                        to security reasons.
+                        <br>
+                        All included files are copyright &copy;2022 RONC.
+                        <br>
+                        Depending on the browser and OS, you may be asked for
+                        permission to download.
+                    </td>
+                </tr>
+            </table>
+            <a id="copyright"></a>
+            <table width="1080px">
+                <tr>
+                    <td colspan="3"
+                        style="background-color: black; font-size: 16pt;">
+                        Copyright
+                </tr>
+                <tr>
+                    <td style="font-size: var(--txt-size);" width="20%">
+                        Copyright
+                    </td>
+                    <td colspan="2" style="font-size: var(--txt-size);">
+                        LICENSE AND COPYRIGHT
+                        <br>
+                        <span id="cR">
+                        </span>
+                        <script>
+                            document.getElementById("cR").innerHTML = "<span>" + cRight + "</span>";
+                        </script>
+                        <br>
+                        <span id="me2">
+                        </span>
+                        <script>
+                            var moi = author + " (" + email + ").";
+                            document.getElementById("me2").innerHTML = "<span>" + moi + "</span>";
+                        </script>
+                        <br>
+                        This program is free software; you can redistribute it
+                        and/or modify it under the terms of the GNU General
+                        Public License as published by the Free Software
+                        Foundation; either version 2 of the License, or (at your
+                        option) any later version.
+                        <br>
+                        This program is distributed in the hope that it will be
+                        useful, but WITHOUT ANY WARRANTY; without even the
+                        implied warranty of MERCHANTABILITY or FITNESS FOR A
+                        PARTICULAR PURPOSE. See the GNU General Public License
+                        for more details.
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <br>
+            <br>
+        </div>
+    </body>
+
+</html>
+
+</-- help.html -->

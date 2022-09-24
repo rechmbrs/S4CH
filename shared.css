@@ -1,0 +1,126 @@
+/* shared.css */
+
+:root {
+  --dark-color: #111111;
+  --bg-color: #282828;
+  --txt-color: #a8a8a8;
+  --txt-size: 12pt;
+}
+/* document.documentElement.style.setProperty('--your-variable', '#YOURCOLOR'); */
+
+body {
+  width: 1080px;
+  background-color: var(--bg-color);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 18pt;
+  font-weight: normal;
+  color: var(--txt-color);
+  padding: 0;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  padding: 0px;
+}
+
+.centerText {
+  text-align: center;
+}
+
+.centerTextHeader {
+  text-align: center;
+  font-weight: normal;
+}
+
+.textHeader {
+  font-weight: normal;
+}
+
+textarea {
+  padding: 4px;
+  max-width: 100%;
+  font-size: 18pt;
+  font-weight: bold;
+  border: 1px solid var(--bg-color);
+  background: transparent;
+  color: transparent;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  resize: none;
+}
+
+textarea::-webkit-scrollbar {
+  width: 8px;
+  background-color: var(--bg-color);
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background-color: var(--txt-color);
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  border-radius: 8px;
+}
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  z-index: 10000;
+  overflow: visible;
+}
+
+/* Tooltip text */
+.tooltip .tooltipText {
+  visibility: hidden;
+  max-width: 500px;
+  max-height: 150px;
+  background-color: var(--txt-color);
+  color: var(--bg-color);
+  text-align: center;
+  padding: 2px;
+  border-radius: 8px;
+  border: 2px solid var(--bg-color);
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 10000;
+  top: 2px;
+  left: 0;
+  font-size: var(--txt-size);
+  margin-left: -120px;
+  margin-top: -15px;
+
+  /* Fade in tooltip */
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+/* Tooltip arrow */
+/* .tooltip .tooltipText::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--txt-color);
+} */
+
+/* Tooltip Display */
+/* .tooltipDisplay {
+  
+  margin-left: 0px;
+  margin-top: -15px;
+} */
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltipText {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* shared.css */

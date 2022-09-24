@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en" charset="utf-8">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Cache-Control"
+            content="no-cache, no-store, must-revalidate" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+
+        <title>Scales for Chromatic Harmonica</title>
+
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+        <link rel="stylesheet" href="shared.css">
+        <style>
+            hr {
+                width: 50%;
+                height: 32px;
+                text-align: left;
+                margin: 0;
+                background-color: var(--bg-color);
+                color: var(--bg-color);
+                border-width: 0;
+                padding: 0px;
+            }
+
+            .parent1 {
+                width: 64px;
+                height: 64px;
+                position: absolute;
+                left: 40px;
+                padding: 6px;
+                border: 1px solid var(--txt-color);
+                border-radius: 8px;
+                text-align: center;
+                display: inline-block;
+                vertical-align: middle;
+                line-height: 64px;
+                font-size: 30pt;
+                font-weight: bold;
+                color: var(--dark-color);
+            }
+
+            .parent2 {
+                width: 64px;
+                height: 64px;
+                position: absolute;
+                left: 120px;
+                padding: 6px;
+                border: 1px solid var(--txt-color);
+                border-radius: 8px;
+            }
+
+            .parent3 {
+                width: 64px;
+                height: 64px;
+                position: absolute;
+                left: 200px;
+                padding: 6px;
+                border: 1px solid var(--txt-color);
+                border-radius: 8px;
+            }
+
+            .parent4 {
+                width: 236px;
+                height: 40px;
+                position: absolute;
+                top: 445px;
+                left: 40px;
+                text-align: center;
+                vertical-align: middle;
+                font-size: 13pt;
+                font-weight: normal;
+                display: inline-block;
+                vertical-align: middle;
+                line-height: 20px;
+                border: 1px solid var(--txt-color);
+                border-radius: 8px;
+            }
+
+            button {
+                align-content: center;
+                border: none;
+                border-radius: 8px;
+                background-color: var(--dark-color);
+                color: var(--txt-color);
+                padding: 18px 18px;
+                font-size: 18pt;
+                font-weight: normal;
+                cursor: pointer;
+                display: inline-block;
+            }
+
+            .heightText {
+                display: inline-block;
+                padding: 2px 2px;
+                line-height: 100%;
+                font-size: 17pt;
+                font-weight: normal;
+                background-color: var(--bg-color);
+                color: var(--txt-color);
+                border-radius: 8px;
+            }
+
+            .heightText:hover {
+                opacity: 1;
+            }
+
+            .heightBtn {
+                display: inline-block;
+                padding: 2px 2px;
+                line-height: 100%;
+                font-size: 16pt;
+                font-weight: normal;
+                background-color: var(--bg-color);
+                color: var(--txt-color);
+                border-style: solid;
+                border-width: 1px;
+                border-radius: 8px;
+                border-color: var(--txt-color);
+            }
+
+            .heightBtnDis {
+                display: inline-block;
+                padding: 1px 1px;
+                line-height: 100%;
+                font-size: 16pt;
+                font-weight: normal;
+                background-color: var(--bg-color);
+                color: var(--txt-color);
+                border-width: 1px;
+                border-radius: 8px;
+                border-color: var(--txt-color);
+                cursor: not-allowed;
+                pointer-events: none;
+            }
+
+            audio {
+                width: 140px;
+                height: 80px;
+            }
+
+            #panels {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            .div1 {
+                float: left;
+                height: 480px;
+                padding: 1px;
+            }
+
+            #column1 {
+                background-color: var(--bg-color);
+                width: 280px;
+                padding: 4px;
+            }
+
+            #column2 {
+                width: 220px;
+            }
+
+            #column3 {
+                background-color: var(--bg-color);
+                width: 400px;
+                padding: 4px;
+            }
+
+            select:hover {
+                opacity: 1;
+            }
+
+            option {
+                line-height: 80%;
+                font-size: 15pt;
+                font-weight: normal;
+            }
+
+            input[type='number'] {
+                width: 80px;
+            }
+
+            input[type='button'] {
+                margin-right: 2px;
+            }
+
+            .frameImage {
+                opacity: 0;
+                position: absolute;
+                left: 304px;
+                top: 10;
+                width: 200px;
+                /*250px;*/
+                height: 480px;
+                /*600px;*/
+                outline-offset: -2px;
+                outline: 1px solid var(--bg-color);
+                border-radius: 8px;
+                z-index: -1;
+            }
+
+            .slidecontainer {
+                width: 450px;
+                height: 26px;
+            }
+
+            .slider {
+                -webkit-appearance: none;
+                width: 120px;
+                height: 26px;
+                background: var(--txt-color);
+                /* box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; */
+                border: 1px solid var(--bg-color);
+                border-radius: 8px;
+                outline: none;
+                opacity: 0.7;
+                -webkit-transition: .2s;
+                transition: opacity .2s;
+            }
+
+            .slider:hover {
+                opacity: 1;
+            }
+
+            .slider::-webkit-slider-runnable-track {
+                background: var(--bg-color);
+                border: 1px solid var(--txt-color);
+                border-radius: 8px;
+                width: 100%;
+                height: 26px;
+                cursor: pointer;
+            }
+
+            .slider::-moz-range-track {
+                background: var(--bg-color);
+                border: 1px solid var(--txt-color);
+                border-radius: 8px;
+                width: 100%;
+                height: 26px;
+                cursor: pointer;
+            }
+
+            .slider::-ms-track {
+                background: transparent;
+                border-color: transparent;
+                border-width: 14.8px 0;
+                color: transparent;
+                width: 100%;
+                height: 8.4px;
+                cursor: pointer;
+            }
+
+            .slider::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                appearance: none;
+                width: 6px;
+                height: 24px;
+                border: 1px;
+                border-radius: 8px;
+                background: var(--txt-color);
+                cursor: pointer;
+                opacity: 1;
+            }
+
+            .slider::-moz-range-thumb {
+                width: 6px;
+                height: 24px;
+                border: 1px;
+                border-radius: 8px;
+                background: var(--txt-color);
+                cursor: pointer;
+                opacity: 1;
+            }
+
+            .completeScale {
+                position: absolute;
+                left: 40px;
+                top: 500px;
+                width: 880px;
+                height: 91px;
+                z-index: -1;
+                padding: 0;
+                margin: 0;
+                overflow: hidden;
+                border-width: 1px;
+                border-style: solid;
+                border-color: var(--txt-color);
+                border-radius: 8px;
+            }
+
+            .scaleImage {
+                position: relative;
+                left: 414px;
+                top: 0px;
+                width: 1133px;
+                height: 91px;
+                max-height: 100%;
+                z-index: 10;
+            }
+
+            .scaleSelect {
+                position: relative;
+                left: -128px;
+                top: -96px;
+                width: 1133px;
+                height: 91px;
+                max-height: 100%;
+                z-index: 2000;
+            }
+
+            .completeChrom {
+                position: absolute;
+                left: 40px;
+                top: 596px;
+                width: 832px;
+                height: 90px;
+                z-index: -1;
+                padding: 0;
+                margin: 0;
+                overflow: hidden;
+                border-width: 1px 1px 1px 1px;
+                border-style: solid;
+                border-color: var(--txt-color);
+                border-radius: 8px 0 0 8px;
+            }
+
+            .inExHale {
+                position: relative;
+                left: 20px;
+                top: -62px;
+                width: 32px;
+                height: 32px;
+            }
+
+            .mpImage {
+                position: relative;
+                left: 416px;
+                top: 0px;
+                width: 1132px;
+                height: 90px;
+                max-height: 100%;
+                z-index: 20;
+            }
+
+            .mpHole1 {
+                position: absolute;
+                left: 406px;
+                top: 2px;
+                width: 32px;
+                height: 32px;
+                max-height: 100%;
+                z-index: 2010;
+            }
+
+            .mpHole2 {
+                position: absolute;
+                left: 406px;
+                top: 2px;
+                width: 32px;
+                height: 32px;
+                max-height: 100%;
+                z-index: 2010;
+            }
+
+            .inOutSlide {
+                position: absolute;
+                left: 870px;
+                top: 596px;
+                z-index: 2010;
+                padding: 0;
+                margin: 0;
+                overflow: hidden;
+                background-size: 48px 90px;
+                min-width: 48px;
+                min-height: 90px;
+                background: var(--bg-color);
+                border-width: 1px 1px 1px 4px;
+                border-style: solid;
+                border-color: var(--txt-color);
+                border-radius: 0 8px 8px 0;
+            }
+
+            .mpSlide1 {
+                position: absolute;
+                left: 0px;
+                top: 27px;
+                width: 43px;
+                height: 43px;
+                max-height: 100%;
+                z-index: 2020;
+            }
+
+            .mpSlide2 {
+                position: absolute;
+                left: 0px;
+                top: 27px;
+                width: 43px;
+                height: 43px;
+                max-height: 100%;
+                z-index: 2030;
+            }
+
+            .recap {
+                position: absolute;
+                left: 40px;
+                top: 691px;
+                width: 872px;
+                height: 96px;
+                z-index: -1;
+                padding: 4px;
+                margin: 0;
+                overflow: hidden;
+                border-width: 1px;
+                border-style: solid;
+                border-color: var(--txt-color);
+                border-radius: 8px;
+                /*background-color: var(--dark-color); */
+                color: var(--txt-color);
+            }
+
+            .padder {
+                position: absolute;
+                left: 40px;
+                top: 810px;
+                width: 872px;
+                font-size: 12pt;
+            }
+
+            #topBtn {
+                display: none;
+                position: fixed;
+                bottom: 50px;
+                right: 250px;
+                z-index: 99999;
+                font-size: 22px;
+                border: 2px solid var(--txt-color);
+                outline: none;
+                background-color: var(--bg-color);
+                color: var(--txt-color);
+                cursor: pointer;
+                padding: 15px;
+                border-radius: 8px;
+            }
+
+            #topBtn:hover {
+                background-color: #555555;
+            }
+        </style>
+
+        <script>
+            var imageOn = true;
+            var audioOn = true;
+            var tabOn = true;
+            var completeScale = true;
+            var mouthPiece = true;
+            var recap = true;
+            var aborter = false;
+            var okLoopCalls = 0;
+            var loopOn = false;
+            var pauseOn = false;
+            var userError = 0;
+            var errText = "User error:";
+            var recapText = "";
+            var indNote;
+            var indHole;
+            var imageFrame;
+            var audioFrame;
+            var loopIt = true;
+            var delayTime;
+
+            var indx = Array(2500).fill(-1);
+        </script>
+
+        <script src="manifest.js" type="text/javascript"></script>
+        <script src="cookie.js" type="text/javascript"></script>
+        <script src="scales.js?v=12345678"></script>
+    </head>
+
+    <body>
+        <div id="topBtnDiv"><button onclick="topFunction()" id="topBtn"
+                title="Go to top" style="display: block;">Top</button></div>
+        <script>
+            var config = "";
+            config = config
+                + '<button onclick="topFunction()" id="topBtn" title="Go to top">Top</button>';
+            document.getElementById('topBtnDiv').innerHTML = config;
+            //Get the button
+            var topbutton = document.getElementById("topBtn");
+
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function () { scrollFunction() };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+                    topbutton.style.display = "block";
+                } else {
+                    topbutton.style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+        </script>
+
+        <main id="panels">
+            <div class="div1" id="column1" margin="2px">
+                <script>
+                    var config = "";
+                    config = config
+                        + '<div class="centerText">'
+                        + '<span style="font-size: 22pt; font-weight: bold;">'
+                        + document.title
+                        + '</span>'
+                        + '</div>'
+                        + '<div class="centerTextHeader">'
+                        + '<span style="font-size: 15pt;">'
+                        + header
+                        + '</span'
+                        + '</div>';
+                    // console.log(config);
+                    document.getElementById('column1').innerHTML = config;
+                </script>
+                <div id="sm" style="margin-left: 54px;">
+                    <script>
+                        var config =
+                            '<div class="tooltip">'
+                            + ' <a href='
+                            + sponsorWeb
+                            + '><img src='
+                            + sponsorLogo
+                            + ' alt="sm" width="186px" height="62px"></a>'
+                            + ' <span class="tooltipText" style="margin-left: -20px; margin-top: -24px;">'
+                            + sponsor
+                            + '</span>'
+                            + ' </div>'
+
+                        // console.log(config);
+                        document.getElementById('sm').innerHTML = config;
+                    </script>
+                </div>
+                <div width="100%" class="center" id="tabStuff">
+                    <script>
+                        if (tabOn == true) {
+                            config = "";
+                            config = config
+                                + '<img id="ind" class="parent1" src="hole1.png" alt="hole" style="z-index: 0; opacity: 1;">'
+                                + '<div id="indV" class="parent1"> </div>'
+                                + '<img id="exh" class="parent2" src="exhale1.png" alt="exhale" style="z-index: 10; opacity: 1;">'
+                                + '<img id="inh" class="parent2" src="inhale1.png" alt="inhale" style="z-index: 20; opacity: 0;">'
+                                + '<img id="slo" class="parent3" src="sliderOut1.png" alt="sliderOut" style="z-index: 10; opacity: 1;">'
+                                + '<img id="sli" class="parent3" src="sliderIn1.png" alt="sliderIn" style="z-index: 20; opacity: 0;">'
+                                + '<div id="freqWave" class="parent4"> </div>';
+                        }
+                        // console.log(config);
+                        document.getElementById("tabStuff").innerHTML = config;
+                    </script>
+                </div>
+            </div>
+
+            <div class="div1" id="column2">
+                <script>
+                    // Build preloaded table of images and audio files 
+                    var config = "";
+                    if (imageOn == true) {
+                        config = config
+                            + '<img class="frameImage"'
+                            + ' id="f'
+                            + 0 + '"'
+                            + ' src = "frames/images/image'
+                            + 0
+                            + '.png" alt = "frameImage'
+                            + 0 + '"'
+                            + ' style = "z-index:'
+                            + -100
+                            + '; opacity: 1;">'
+
+                            + '<img class="frameImage"'
+                            + ' id="r'
+                            + 102 + '"'
+                            + ' src = "frames/images/image'
+                            + 102
+                            + '.png" alt = "frameImage'
+                            + 102 + '"'
+                            + ' style = "z-index:'
+                            + 200
+                            + '; opacity: 0;">';
+                    }
+                    if (audioOn == true) {
+                        config = config
+                            + '<audio class="frameAudio" '
+                            + ' id="a'
+                            + 0 + '"'
+                            + ' src = "frames/audio/audio'
+                            + 0
+                            + '.mp3" preload ="auto" volume = "0.0"></audio>'
+                    }
+
+                    // document.getElementById("freqWave").innerText = "LOADING";
+                    for (var j = 1; j <= numNotesMax; j++) {
+                        if (imageOn == true) {
+                            config = config
+                                + '<img class="frameImage"'
+                                + ' id="f'
+                                + j + '"'
+                                + ' src = "frames/images/image'
+                                + j
+                                + '.png" alt = "frameImage'
+                                + j + '"'
+                                + ' style = "z-index:'
+                                + j
+                                + '; opacity: 0;">';
+                        }
+                        if (audioOn == true) {
+                            config = config + '<audio loop="loopIt" class="frameAudio"'
+                                + ' id="a'
+                                + j + '"'
+                                + ' src = "frames/audio/audio'
+                                + j
+                                + '.mp3"'
+                                //    + '#t=0.0128,01.0128'
+                                //    + ' oncanplaythrough="this.play()'
+                                + ' preload = "auto" volume = "0.0"></audio>'
+                        }
+                    };
+
+                    config = config + '</br>';
+
+                    // console.log(config);
+                    document.getElementById("column2").innerHTML = config;
+                    if (imageOn == true) {
+                        document.getElementById("r102").style.opacity = 1;
+                    }
+                </script>
+            </div>
+
+            <div class="div1" id="column3">
+                <script src="setup.js"></script>
+                <script>
+                    var step = document.getElementById("stepIn");
+                    var output1 = document.getElementById("slider1");
+                    output1.innerHTML = step.value;
+                    step.oninput = function () {
+                        output1.innerHTML = this.value;
+                    }
+                    var volume = document.getElementById("volumeIn");
+                    var output2 = document.getElementById("slider2");
+                    output2.innerHTML = volume.value;
+                    volume.oninput = function () {
+                        output2.innerHTML = this.value;
+                    }
+                    var length3 = document.getElementById("lengthIn");
+                    var output3 = document.getElementById("slider3");
+                    output3.innerHTML = nonlinear(length3.value);
+                    length3.oninput = function () {
+                        let x = this.value;
+                        output3.innerHTML = nonlinear(x);
+                    }
+                </script>
+            </div>
+
+            <div id="complete" class="complete">
+                <script>
+                    var config = "";
+                    if (completeScale == true) {
+                        config = config
+                            + '<div class="completeScale">'
+                            + '<div class="tooltip">'
+                            + '<img src="chromScale2backWhite.png" alt="scale" class="scaleImage" id="scaleImage">'
+                            + '<img src="box.png" alt="box" class="scaleSelect" id="scaleSelect">'
+                            + '<span class="tooltipText" style="margin-left: 4px; margin-top: 4px;">'
+                            + 'Note position within the Chromatic scale'
+                            + '</span>'
+                            + '</div>'
+                            + '</div>';
+                    }
+                    if (mouthPiece == true) {
+                        config = config
+                            + '<div class="completeChrom">'
+                            + '<div class="tooltip">'
+                            + '<img src="mouthPiece75.png" alt="mouthPiece" class="mpImage" id="mpImage">'
+                            + '<span class="tooltipText" style="margin-left: 4px; margin-top: 4px;">'
+                            + 'Hole information (real time)- Chromatic harmonica mouthpiece:  This shows how you should position and use the device.'
+                            + '</span>'
+                            + '</div>'
+
+                            + '<div class="inExHale">'
+                            + '<img src="exhale1.png" alt="ex" class="mpHole1" id="mpHole1" style="z-index: 2020; opacity: 0;">'
+                            + '<img src="inhale1.png" alt="in" class="mpHole2" id="mpHole2" style="z-index: 2030; opacity: 0;">'
+                            + '</div>'
+                            + '</div>';
+
+                        config = config
+                            + '<div class="inOutSlide">'
+                            + '<img src="sliderOut1.png" alt="ou" class="mpSlide1" id="mpSlide1" style="z-index: 4040; opacity: 1;">'
+                            + '<img src="sliderIn1.png" alt="in" class="mpSlide2" id="mpSlide2" style="z-index: 4050; opacity: 0;">'
+                            + '</div>';
+                    }
+                    if (recap == true) {
+                        config = config
+                            + '<div id="recap" class="recap" style="color: var(--txt-color); border: 1px solid var(--txt-color);>'
+                            + '<div class="tooltip">'
+                            + '<textarea id="recapPanel" name="recapPanel" readonly disabled rows="4" cols="84" style="color: var(--txt-color); border: 0px solid var(--txt-color); font-size: 13pt; font-weight: normal; padding: 10px;">'
+                            + '</textarea>'
+                            + '<span class="tooltipText" style="margin-left: 4px; margin-top: 4px;">'
+                            + 'Recap:  Shows note names and tabs for notes that have been played.'
+                            + '</span>'
+                            + '</div>'
+                            + '</div>';
+                    }
+
+                    config = config
+                        + '<div id="padder" class="padder">'
+                        + 'Scales For Chromatic '
+                        + versionNum
+                        + ' - '
+                        + versionDate
+                        + " - "
+                        + cRight
+                        + '<br>&nbsp;'
+                        + '<div>';
+                    // console.log(config);
+                    document.getElementById("complete").innerHTML = config;
+
+                </script>
+
+                <script>
+                    function waiter(x) {
+                        return new Promise(resolve => {
+                            setTimeout(() => {
+                                if (imageOn == true) {
+                                    document.getElementById(imageFrame).style.opacity = 0;
+                                    // console.log(x + " " + imageFrame + " set2f ", document.getElementById(imageFrame).style.opacity + '  ' + x + '  ' + delayTime);
+                                }
+
+                                if (audioOn == true) {
+                                    document.getElementById(audioFrame).volume = 0.0;
+                                    document.getElementById(audioFrame).pause();
+                                    document.getElementById(audioFrame).currentTime = 0;
+                                    // console.log(x + " " + audioFrame + " set2a ", document.getElementById(audioFrame).volume + '  ' + delayTime);
+                                }
+                                if (completeScale == true) {
+                                    document.getElementById("scaleImage").style.left = "414px";
+                                }
+                                if (mouthPiece == true) {
+                                    document.getElementById("mpImage").style.left = "416px";
+                                    if (airOut == 1) {
+                                        document.getElementById("mpHole1").style.opacity = 0;
+                                    } else {
+                                        document.getElementById("mpHole2").style.opacity = 0;
+                                    }
+                                    if (slideOut == 1) {
+                                        document.getElementById("mpSlide1").style.opacity = 1;
+                                    } else {
+                                        document.getElementById("mpSlide2").style.opacity = 1;
+                                    }
+                                }
+
+                                resolve(x);
+                            }, delayTime)
+                        })
+                    };
+
+                    function findMatch(a, b, c, bsIn, beIn, bi) {
+                        var la = a.length;
+                        var lb = b.length;
+                        var lc = c.length;
+                        var bs, be;
+                        var num = 0;
+
+                        bs = 1;
+                        be = lb;
+                        for (var j = 1; j < lc; j++) {
+                            if (c[j].includes(bsIn)) {
+                                bs = j;
+                            }
+                            if (c[j].includes(beIn)) {
+                                be = j;
+                            }
+                        }
+                        // console.log("inside find " + la + " " + lb + " " + lc + " " + bsIn + " " + bs + " " + beIn + " " + be + " " + bi);
+                        for (var i = 1; i <= lb; i++) {
+                            for (var j = bs; j <= be; j += bi) {
+                                if (c[j].includes(b[i])) {
+                                    a[i] = j;
+                                    if (i > num) num = i;
+                                }
+                                // console.log("find " + c[j] + " " + j + " " + b[i] + " " + i + " " + a[i] + " " + num);
+                            }
+                        }
+                        return num;
+                    };
+
+                    function buttonBlinker(button, bgcolor, txtcolor) {
+                        document.getElementById(button).style.backgroundColor = bgcolor;
+                        document.getElementById(button).style.color = txtcolor;
+                    }
+
+                    function buttonBlink(button) {
+                        let t = 250;
+                        document.getElementById(button).style.backgroundColor = "var(--txt-color)";
+                        document.getElementById(button).style.color = "var(--dark-color)";
+                        const timeout1 = setTimeout(function () { buttonBlinker(button, "var(--dark-color)", "var(--txt-color)") }, t);
+                        const timeout2 = setTimeout(function () { buttonBlinker(button, "var(--txt-color)", "var(--dark-color)") }, t * 2);
+                        const timeout3 = setTimeout(function () { buttonBlinker(button, "var(--dark-color)", "var(--txt-color)") }, t * 3);
+                    }
+
+                    function looper() {
+                        buttonBlink("loopBtn");
+
+                        loopOn = true;
+                        if (okLoopCalls == 0) {
+                            okLoopCalls = okLoopCalls + 1;
+                            // console.log(okLoopCalls);
+                            syncer();
+                        }
+                    }
+
+                    var noteOut;
+                    var holeOut;
+                    var airOut;
+                    var slideOut;
+                    var freqOut;
+                    var waveOut;
+
+                    async function syncer() {
+                        userError = 0;
+
+                        indNote = 0;
+                        indHole = 0;
+                        imageFrame = 0;
+                        audioFrame = 0;
+                        delayTime = 0;
+                        noteOut = "";
+                        holeOut = 0;
+                        airOut = 0;
+                        slideOut = 0;
+                        freqOut = 0;
+                        waveOut = 0;
+                        var frameDelay = 1000;
+                        var imageOpacity = 1;
+                        var audioVolume = volumeIn.value;
+
+                        var scaleIn = scales.value;
+                        var scaleIndex = scales.selectedIndex;
+                        var scaleLoIn = scaleLo.value;
+                        var scaleLoIndex = parseInt(scaleLo.selectedIndex);
+                        var scaleHiIn = scaleHi.value;
+                        var scaleHiIndex = numNotesMax - parseInt(scaleHi.selectedIndex) + 1;
+                        if (scaleLoIndex > scaleHiIndex) {
+                            userError = userError + 10;
+                            errText = errText + " Scale Low > Scale High";
+                        }
+
+                        var dirIndex = parseInt(direction.selectedIndex);
+                        var stepVal = parseInt(stepIn.value);
+
+                        delayTime = lengthIn.value;
+                        if (delayTime <= 1.0) {
+                            delayTime = frameDelay * delayTime;
+                        } else {
+                            delayTime = frameDelay * Math.pow(delayTime, 3).toFixed(0);
+                        }
+
+                        if (userError > 0) {
+                            document.getElementById("errorPanel").style.visibility = "visible";
+                            document.getElementById("errorPanel").style.borderWidth = "1px";
+                            document.getElementById("errorPanel").style.borderColor = "#ff0000";
+                            document.getElementById("errorPanel").style.color = "#ff0000";
+                            document.getElementById("errorPanel").innerHTML = errText;
+                            stopper();
+                        }
+
+                        function readUser() {
+                            return;
+                        };
+
+                        do {
+                            indx.fill(-1);
+                            var u = scaleIn.indexOf("U");
+                            if (u > 0) {
+                                readUser();
+                            }
+                            var t = 5;
+                            var m = scaleIn.indexOf("M");
+                            if (m > 0) t = m;
+                            var p = scaleIn.indexOf("P");
+                            if (p > 0) t = p;
+                            var b = scaleIn.indexOf("Bl");
+                            if (b > 0) t = b + 1;
+                            var scaleName = scaleIn.substr(0, t + 1);
+                            var nextScaleName = "_M"
+                            recapText = "";
+                            recapText = "SCALE: " + scaleName + "  NOTE-NAME(TAB),:";
+                            var indxSt = -1;
+                            var indxSp = -1;
+                            for (var k = 0; k < scalesAll.length; k++) {
+                                if (scalesAll[k].search(scaleName) != -1) {
+                                    indxSt = k;
+                                    for (l = k + 1; l < scalesAll.length; l++) {
+                                        if (scalesAll[l].search(nextScaleName) != -1 && indxSp == -1) {
+                                            indxSp = l;
+                                        }
+                                    }
+                                }
+                                if (indxSt != -1) break;
+                            }
+
+                            var scalePlay = scalesAll.slice(indxSt, indxSp);
+                            // console.log("SCALE " + scaleName + " " + indxSt + " " + indxSp + " " + scalePlay + " " + t + " " + m + " " + p + " " + b);
+
+                            var numNotes = findMatch(indx, scalePlay, chromScale, scaleLoIn, scaleHiIn, stepVal);
+                            // console.log(indx.slice(0, numNotes + 1));
+
+                            if (dirIndex > 0) {
+                                if (dirIndex == 1) {
+                                    var reversed = indx.slice(1, numNotes + 1).reverse();
+                                    // console.log("rev " + reversed);
+                                    for (var m = 0; m < numNotes; m++) {
+                                        indx[m + 1] = reversed[m];
+                                    }
+                                    // console.log(indx.slice(0, numNotes + 1));
+                                }
+                                if (dirIndex == 2) {
+                                    var reversed = indx.slice(1, numNotes + 1).reverse();
+                                    // console.log("rev " + reversed);
+                                    for (var m = 0; m < numNotes; m++) {
+                                        indx[m + numNotes + 1] = reversed[m];
+                                    }
+                                    indx[numNotes + 1] = -1;
+                                    numNotes = numNotes * 2;
+                                    if (loopOn == true) {
+                                        var done = 0;
+                                        for (var m = numNotes; m > 0; m--) {
+                                            if (done == 0 && indx[m] != -1) {
+                                                done = 1;
+                                                indx[m] = -1;
+                                            }
+                                        }
+                                    }
+                                    // console.log(numNotes + " " + indx.slice(0, numNotes + 1));
+                                }
+
+                                if (dirIndex == 3) {
+                                    var sliced = indx.slice(1, numNotes + 1);
+                                    // console.log("sli " + numNotes + " " + sliced);
+                                    for (var m = 0; m <= numNotes; m++) {
+                                        indx[m] = sliced[numNotes - m];
+                                        indx[m + numNotes + 1] = sliced[m];
+                                    }
+                                    indx[numNotes + 1] = -1;
+                                    numNotes = numNotes * 2;
+                                    if (loopOn == true) {
+                                        var done = 0;
+                                        for (var m = numNotes; m > 0; m--) {
+                                            if (done == 0 && indx[m] != -1) {
+                                                done = 1;
+                                                indx[m] = -1;
+                                            }
+                                        }
+                                    }
+                                    // console.log(numNotes + " " + indx.slice(0, numNotes + 1));
+                                }
+                                if (dirIndex == 4) {
+                                    for (var n = 0; n < 5; n++) {
+                                        for (var m = numNotes; m > 0; m--) {
+                                            j = Math.floor(Math.random() * m);
+                                            k = indx[m];
+                                            indx[m] = indx[j];
+                                            indx[j] = k;
+                                        }
+                                    }
+                                    // console.log(indx.slice(0, numNotes));
+                                }
+                            }
+
+                            //  console.log("find " + numNotes + " " + indx);
+                            if (loopOn == false) indx[0] = 0;
+                            document.getElementById("f0").style.opacity = 1;
+                            for (var j = 1; j <= numNotes; j++) {
+                                indNote = indx[j];
+                                if (indNote != -1 && aborter == false) {
+                                    if (imageOn == true) {
+                                        //    document.getElementById("r" + 102).style.display = "none";
+                                        document.getElementById("r102").style.opacity = 0;
+
+                                        imageFrame = "f" + indNote;
+                                        document.getElementById(imageFrame).style.opacity = imageOpacity;
+                                        // console.log(indNote + " " + j + " " + imageFrame + " set1f ", document.getElementById(imageFrame).style.opacity);
+                                    }
+                                    if (audioOn == true) {
+                                        audioFrame = "a" + indNote;
+                                        document.getElementById(audioFrame).volume = audioVolume;
+                                        document.getElementById(audioFrame).loop = "loopIt";
+                                        document.getElementById(audioFrame).play();
+                                        // console.log(indNote + " " + j + " " + audioFrame + " set1a ", document.getElementById(audioFrame).volume + " " + delayTime);
+                                    }
+
+                                    decodeTab();
+                                    // console.log(indNote + " " + holeOut + " " + airOut + " " + slideOut + " " + noteOut + " " + freqOut + " " + waveOut);
+
+                                    if (tabOn == true) {
+                                        document.getElementById("indV").innerText = holeOut;
+                                        if (airOut != 0) {
+                                            document.getElementById("inh").style.opacity = 0;
+                                            document.getElementById("exh").style.opacity = 1;
+                                        } else {
+                                            document.getElementById("inh").style.opacity = 1;
+                                            document.getElementById("exh").style.opacity = 0;
+                                        }
+                                        if (slideOut != 0) {
+                                            document.getElementById("slo").style.opacity = 1;
+                                            document.getElementById("sli").style.opacity = 0;
+                                        } else {
+                                            document.getElementById("slo").style.opacity = 0;
+                                            document.getElementById("sli").style.opacity = 1;
+                                        }
+                                        var y = "   -   ";
+                                        // document.getElementById("freqWave").innerText = noteOut + "\n" + freqOut + "Hz" + "    " + waveOut + "m";
+                                        document.getElementById("freqWave").innerText = noteOut + y + "(" + tabs[indNote] + ")" + "\n" + freqOut + "Hz" + y + (waveOut * m2ft).toFixed(1) + "ft";
+                                        recapText = recapText + " " + noteOut + "(" + tabs[indNote] + ")";
+                                        if (j < numNotes) recapText = recapText + ",";
+                                        document.getElementById("recapPanel").innerText = recapText;
+                                    }
+
+                                    if (completeScale == true) {
+                                        var lefty = 414;
+                                        var factor = 0.66667;
+                                        if (indNote < 13) {
+                                            lefty = lefty + 0 - ((indNote - 1) % 12) * (410 / 12) * factor;
+                                        } else if (indNote < 25) {
+                                            lefty = lefty - 410 * factor - ((indNote - 1) % 12) * (375 / 12) * factor;
+                                        } else if (indNote < 37) {
+                                            lefty = lefty - 785 * factor - ((indNote - 1) % 12) * (368 / 12) * factor;
+                                        } else if (indNote < 49) {
+                                            lefty = lefty - 1152 * factor - ((indNote - 1) % 12) * (405 / 12) * factor;
+                                        } else if (indNote < 52) {
+                                            lefty = lefty - 1557 * factor - ((indNote - 1) % 12) * (64 / 2) * factor;
+                                        }
+                                        document.getElementById("scaleImage").style.left = lefty.toFixed(0) + "px";
+                                        // console.log(indNote + " " + lefty);
+                                    }
+
+                                    if (mouthPiece == true) {
+                                        var lefty = 416 - (indHole - 1) * (780 / 15);
+                                        document.getElementById("mpImage").style.left = lefty.toFixed(0) + "px";
+                                        if (airOut == 1) {
+                                            document.getElementById("mpHole1").style.opacity = 1;
+                                        } else {
+                                            document.getElementById("mpHole2").style.opacity = 1;
+                                        }
+                                        if (slideOut == 1) {
+                                            document.getElementById("mpSlide2").style.opacity = 0;
+                                            document.getElementById("mpSlide1").style.opacity = 1;
+                                        } else {
+                                            document.getElementById("mpSlide1").style.opacity = 0;
+                                            document.getElementById("mpSlide2").style.opacity = 1;
+                                        }
+                                        // console.log(indHole + "  " + lefty.toFixed(0) + "  " + airOut + "  " + slideOut);
+                                    }
+
+                                    var x = "resolve";
+                                    await waiter(x);
+                                }
+                            };
+                            aborter = false;
+                        } while (loopOn == true);
+                        okLoopCalls = 0;
+                        document.getElementById("r102").style.opacity = 1;
+                    }
+
+                    function decodeTab() {
+                        var noteIn = chromScale[indNote];
+                        var tabIn = tabs[indNote];
+                        var freqIn = freq[indNote];
+                        var waveIn = wave[indNote];
+                        var testHole = parseInt(tabIn);
+                        var test16 = tabIn.indexOf("*");
+                        var testAir = tabIn.indexOf("+");
+                        var testSlide = tabIn.indexOf("S");
+                        holeOut = testHole;
+                        indHole = holeOut + 4;
+                        if (test16 != -1) {
+                            holeOut = holeOut + "*";
+                            indHole = indHole - 4;
+                        }
+                        airOut = 0;
+                        if (testAir != -1) airOut = 1;
+                        slideOut = 1;
+                        if (testSlide != -1) slideOut = 0;
+                        noteOut = noteIn;
+                        freqOut = freqIn;
+                        waveOut = waveIn;
+                        // console.log(indNote + " " + noteIn + " " + tabIn + " " + freqIn + " " + waveIn + " h " + testHole + " 16 " + test16 + " ho " + holeOut + " a " + airOut + " s " + slideOut + " f " + freqOut + " w " + waveOut);
+                    }
+
+                    function oker() {
+                        buttonBlink("okBtn");
+                        if (okLoopCalls == 0) {
+                            okLoopCalls = okLoopCalls + 1;
+                            // console.log(okLoopCalls);
+                            syncer();
+                        }
+                    }
+
+                    function changeResetValues(resetType) {
+                        if (resetType == true) {
+                            let kk = 0;
+                            scales.selectedIndex = parmUser[kk];
+                            // console.log("1130 " + parmUser[kk]);
+
+                            kk++;
+                            scaleLo.selectedIndex = parmUser[kk];
+
+                            kk++;
+                            scaleHi.selectedIndex = parmUser[kk];
+
+                            kk++;
+                            direction.selectedIndex = parmUser[kk];
+
+                            kk++;
+                            stepIn.value = parmUser[kk];
+                            document.getElementById("slider1").innerHTML = parmUser[kk];
+                            console.log("1146 " + kk + " " + stepIn.value + " " + parmUser[kk]);
+
+                            kk++;
+                            volumeIn.value = parmUser[kk];
+                            // console.log("1141 " + kk + " " + volumeIn.value + " " + parmUser[kk]);
+                            document.getElementById("slider2").innerHTML = parmUser[kk];
+
+                            kk++;
+                            lengthIn.value = parmUser[kk];
+                            console.log("1166 " + kk + " " + lengthIn.value + " " + parmUser[kk] + " " + nonlinear(parmUser[kk], true));
+                            document.getElementById("slider3").innerHTML = nonlinear(parmUser[kk], true);
+                        } else {
+                            let kk = 0;
+                            scales.selectedIndex = parmDef[kk];
+
+                            kk++;
+                            scaleLo.selectedIndex = parmDef[kk];
+
+                            kk++;
+                            scaleHi.selectedIndex = parmDef[kk];
+
+                            kk++;
+                            direction.selectedIndex = parmDef[kk];
+
+                            kk++;
+
+                            stepIn.value = parmDef[kk];
+                            document.getElementById("slider1").innerHTML = parmDef[kk];
+
+                            kk++;
+                            volumeIn.value = parmDef[kk];
+                            // console.log("1164 " + kk + " " + volumeIn.value + " " + parmDef[kk]);
+                            document.getElementById("slider2").innerHTML = parmDef[kk];
+
+                            kk++;
+                            lengthIn.value = parmDef[kk];
+                            console.log("1193 " + kk + " " + lengthIn.value + " " + parmDef[kk] + " " + nonlinear(parmDef[kk], true));
+                            document.getElementById("slider3").innerHTML = nonlinear(parmDef[kk], true);
+                        }
+                    }
+
+                    function resetter() {
+                        buttonBlink("resetBtn");
+                        var confirmMessage = versionTitle + " "
+                            + versionDate + " "
+                            + versionNum + " "
+                            + "\nChoose to reset user parameters to either:"
+                            + "\n"
+                            + "\n  OK - Previously saved parameters"
+                            + "\n  Cancel - Default parameters";
+
+                        var resetValues = confirm(confirmMessage);
+                        // console.log(resetValues);
+                        if (resetValues) {
+                            changeResetValues(true);
+                        } else {
+                            changeResetValues(false);
+                        };
+
+                        okLoopCalls = 0;
+                        loopOn = false;
+                        indx.fill(-1);
+                        document.getElementById("indV").innerText = "";
+                        document.getElementById("inh").style.opacity = 0;
+                        document.getElementById("exh").style.opacity = 1;
+                        document.getElementById("slo").style.opacity = 1;
+                        document.getElementById("sli").style.opacity = 0;
+                        document.getElementById("freqWave").innerText = "";
+
+                        userError = 0;
+                        document.getElementById("errorPanel").style.visibility = "hidden";
+                        document.getElementById("errorPanel").style.borderColor = "var(--bg-color)";
+                        document.getElementById("errorPanel").style.color = "var(--bg-color)";
+                        document.getElementById("errorPanel").innerHTML = "";
+
+                        document.getElementById("r102").style.opacity = 1;
+
+                        document.getElementById("mpHole1").style.opacity = 0;
+                        document.getElementById("mpHole2").style.opacity = 0;
+                        document.getElementById("mpSlide1").style.opacity = 1;
+                        document.getElementById("mpSlide2").style.opacity = 0;
+                        // console.log("reset" + document.getElementById("r102").style.opacity + " " + document.getElementById("r102").style.zIndex + " " + document.getElementById("f0").style.opacity + " " + document.getElementById("f0").style.zIndex);
+
+                        recapText = "";
+                        document.getElementById("recapPanel").innerText = recapText;
+                    };
+
+                    function stopper() {
+                        buttonBlink("stopBtn");
+                        loopOn = false;
+                        okLoopCalls = 0;
+                        aborter = true;
+                        userError = 0;
+                        document.getElementById("r102").style.opacity = 1;
+
+                        // console.log("stopped");
+                    };
+
+                    function saver() {
+                        buttonBlink("saveBtn");
+
+                        localStorage.setItem("S4CH", "v1.01");
+                        let kk = 0;
+                        var scaleIndex = scales.selectedIndex;
+                        localStorage.setItem(parmNames[kk], JSON.stringify(scaleIndex));
+                        parmUser[kk] = scaleIndex;/* 
+                        let scaleIndex0 = JSON.parse(localStorage.getItem(parmNames[kk]));
+                        console.log("scale " + scaleIndex + "  " + scaleIndex0); */
+
+                        kk++;
+                        var scaleLoIndex = scaleLo.selectedIndex;
+                        localStorage.setItem(parmNames[kk], JSON.stringify(scaleLoIndex));
+                        parmUser[kk] = scaleLoIndex;
+
+                        kk++;
+                        var scaleHiIndex = scaleHi.selectedIndex;
+                        localStorage.setItem(parmNames[kk], JSON.stringify(scaleHiIndex));
+                        parmUser[kk] = scaleHiIndex;
+
+                        kk++;
+                        var dirIndex = direction.selectedIndex;
+                        localStorage.setItem(parmNames[kk], JSON.stringify(dirIndex));
+                        parmUser[kk] = dirIndex;
+
+                        kk++;
+                        var stepVal = stepIn.value;
+                        localStorage.setItem(parmNames[kk], JSON.stringify(stepVal));
+                        parmUser[kk] = stepVal;
+                        // console.log("step " + stepVal + " " + stepVal)
+
+                        kk++;
+                        var volumeVal = volumeIn.value;
+                        localStorage.setItem(parmNames[kk], JSON.stringify(volumeVal));
+                        parmUser[kk] = volumeVal;
+
+                        kk++;
+                        var lengthVal = lengthIn.value;
+                        localStorage.setItem(parmNames[kk], JSON.stringify(lengthVal));
+                        parmUser[kk] = lengthVal;
+
+                        // console.log("here " + localStorage.getItem("S4CH"));
+                    };
+
+                    function helper() {
+                        buttonBlink("helpBtn");
+                        window.open("help.html", '_blank');
+                        //window.location.href = 'help.html';
+                    }
+                </script>
+            </div>
+        </main>
+        </div>
+    </body>
+
+</html>
+
+</-- index.html -->
