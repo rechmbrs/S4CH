@@ -4,10 +4,10 @@ const versionTitle =
     "Scales For Chromatic";
 
 const versionNum =
-    "06.50.19";
+    "06.50.20";
 
 const versionDate =
-    "19 Sep 2022";
+    "26 Sep 2022";
 
 const versionUrl =
     versionTitle +
@@ -35,12 +35,12 @@ const header =
     "<br>" +
     email;
 
-const sponsorNum = 2;
+const sponsorNum = 1;
 var sponsor;
 var sponsorWeb;
 var sponsorLogo
 if (sponsorNum == 1) {
-    sponsor = "";
+    sponsor = "Google";
     sponsorWeb = "https://www.google.com";
     sponsorLogo = "sm-logo-tp1.png";
 } else if (sponsorNum == 2) {
