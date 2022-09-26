@@ -40,7 +40,7 @@ var sponsor;
 var sponsorWeb;
 var sponsorLogo
 if (sponsorNum == 1) {
-    sponsor = "";
+    sponsor = "Google";
     sponsorWeb = "https://www.google.com";
     sponsorLogo = "sm-logo-tp1.png";
 } else if (sponsorNum == 2) {
