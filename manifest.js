@@ -4,10 +4,10 @@ const versionTitle =
     "Scales For Chromatic";
 
 const versionNum =
-    "06.50.20";
+    "06.50.22";
 
 const versionDate =
-    "26 Sep 2022";
+    "30 Sep 2022";
 
 const versionUrl =
     versionTitle +

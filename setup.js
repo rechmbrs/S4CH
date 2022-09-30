@@ -66,7 +66,8 @@ config = config
     + '<option value="USER" disabled>USER Input</option>'
     + '</select>'
     + '<span class="tooltipText" style="margin-left: -200px; margin-top:-15px;">'
-    + 'Scale - Chromatic, standard key, and Pentatonic scales. Default = Chromatic.'
+    + 'Scale - Chromatic, standard key, and Pentatonic scales. Default = Chromatic. '
+    + 'See note in HELP file on choosing the particular scale.'
     + '</span>'
     + '</div>';
 
