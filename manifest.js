@@ -4,10 +4,10 @@ const versionTitle =
     "Scales For Chromatic";
 
 const versionNum =
-    "06.50.22";
+    "06.50.23";
 
 const versionDate =
-    "30 Sep 2022";
+    "05 Oct 2022";
 
 const versionUrl =
     versionTitle +
@@ -42,7 +42,7 @@ var sponsorLogo
 if (sponsorNum == 1) {
     sponsor = "";
     sponsorWeb = "https://www.google.com";
-    sponsorLogo = "sm-logo-tp1.png";
+    sponsorLogo = "s4ch1s.png"; //"sm-logo-tp1.png";
 } else if (sponsorNum == 2) {
     sponsor = "SlideMeister website";
     sponsorWeb = "https://www.slideMeister.com";
